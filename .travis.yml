@@ -1,0 +1,9 @@
+os: osx
+addons:
+  ssh_known_hosts: github.com
+
+branches:
+  only:
+  - master
+
+script: sh ./new-version.sh

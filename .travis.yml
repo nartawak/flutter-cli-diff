@@ -1,0 +1,7 @@
+os: osx
+
+branches:
+  only:
+  - master
+
+script: sh ./new-version.sh

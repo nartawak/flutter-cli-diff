@@ -6,13 +6,23 @@ currentDir="$(pwd)"
 #FlutterDir
 flutterDir="$currentDir/flutter"
 
-# Clone Flutter repository
-rm -Rf "$flutterDir"
-git clone git@github.com:flutter/flutter.git
+# Clone Flutter repository if not already cloned
+if [[ -d $flutterDir ]]; then
+    echo "Flutter is already cloned"
+    cd "$flutterDir"
+    git fetch --all -p
+    cd "$currentDir"
+else
+    git clone git@github.com:flutter/flutter.git
+fi
 
 # Move to the flutter directory and get all tags (format is vx.x.x)
 cd "$flutterDir"
-versions=("$(git tag -l)")
+versions=()
+for crt_tag in $(git tag -l --sort=v:refname)
+do
+   versions=( "${versions[@]}" "$crt_tag" )
+done
 cd "$currentDir"
 
 lastVersion="v0.0.10"
@@ -58,7 +68,7 @@ for version in "${versions[@]}"; do
     cd "$currentDir"
 
     # Generate Flutter base project with default langage value
-    ./flutter/bin/flutter create flutterdiff --no-pub --org nartawak -i objc -a java
+    ./flutter/bin/flutter create flutterdiff
 
     git add flutterdiff
     git commit -am "version ${version}"
@@ -66,7 +76,7 @@ for version in "${versions[@]}"; do
     git push origin ${version} -f
 
     git checkout master
-    diffUrl="[${lastVersion}...${version}](https://github.com/cexbrayat/angular-cli-diff/compare/${lastVersion}...${version})"
+    diffUrl="[${lastVersion}...${version}](https://github.com/nartawak/flutter-cli-diff/compare/${lastVersion}...${version})"
     # insert a row in the version table of the README
     sed -i "" "/^${version}|/ d" README.md
     sed -i '' 's/----|----|----/----|----|----\
@@ -80,4 +90,4 @@ for version in "${versions[@]}"; do
 done
 
 git checkout master
-#git push origin master -f
+git push origin master -f

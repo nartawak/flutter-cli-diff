@@ -1,4 +1,4 @@
-package com.yourcompany.flutterdiff;
+package com.example.flutterdiff;
 
 import android.os.Bundle;
 

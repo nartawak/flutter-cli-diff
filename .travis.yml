@@ -1,7 +1,9 @@
 os: osx
-
+language: bash
 branches:
   only:
-  - master
-
-script: sh ./new-version.sh
+    - master
+before_script:
+  - sh ./travis-git-config.sh
+script:
+  - sh ./new-version.sh

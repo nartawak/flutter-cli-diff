@@ -13,7 +13,7 @@ if [[ -d $flutterDir ]]; then
     git fetch --all -p
     cd "$currentDir"
 else
-    git clone git@github.com:flutter/flutter.git
+    git clone https://github.com/flutter/flutter.git
 fi
 
 # Move to the flutter directory and get all tags (format is vx.x.x)

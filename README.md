@@ -17,6 +17,7 @@ Note that this is inspired by [Angular Cli diff](https://github.com/cexbrayat/an
 
 Version|Compare view|Stats
 ----|----|----
+v1.3.12|[v1.3.11...v1.3.12](https://github.com/nartawak/flutter-cli-diff/compare/v1.3.11...v1.3.12)| 2 files changed, 2 insertions(+), 2 deletions(-)
 v0.9.6|[v0.9.5...v0.9.6](https://github.com/nartawak/flutter-cli-diff/compare/v0.9.5...v0.9.6)| 2 files changed, 7 insertions(+), 7 deletions(-)
 v0.9.5|[v0.9.4...v0.9.5](https://github.com/nartawak/flutter-cli-diff/compare/v0.9.4...v0.9.5)| 1 file changed, 1 insertion(+), 1 deletion(-)
 v0.9.4|[v0.9.3...v0.9.4](https://github.com/nartawak/flutter-cli-diff/compare/v0.9.3...v0.9.4)| 1 file changed, 1 insertion(+), 1 deletion(-)
